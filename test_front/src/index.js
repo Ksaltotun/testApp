@@ -4,8 +4,8 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import {ThermistorChain} from './Pages/ThermistorChain'
-import { DeformationControl } from './Pages/DeformationControl';
+import {ThermistorChain} from './pages/ThermistorChain'
+import { DeformationControl } from './pages/DeformationControl';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

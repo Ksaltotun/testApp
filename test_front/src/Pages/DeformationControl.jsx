@@ -26,7 +26,7 @@ const stages = ['O','I', 'II', 'III', 'IV']
       );
   }, []);
   return isLoaded ? (
-    error ? null : <>
+    error ? null : <div className="fred">
     <h3>DeformationControl</h3>
     <table>
       <thead>
@@ -34,14 +34,14 @@ const stages = ['O','I', 'II', 'III', 'IV']
           <th>Дата и время измерения</th>
           <th>Цикл измерения</th>
           <th>Отметка, м</th>
-          <th>Дельта, м</th>
+          <th className="delta">{"\u{0394}"}, м</th>
         </tr>
       </thead>
       <tbody>
      
           {deformation.map((point, index) => (
             <tr key={index}>
-              <td>{point.time}</td>
+              <th>{new Date(point.time).toLocaleString("ru").slice(0, -3)}</th>
               <td>{stages[Math.floor(Math.random() * 4)]}</td>
               <td>{point.data.value}</td>
               <td>{point.data.delta}</td>
@@ -50,7 +50,7 @@ const stages = ['O','I', 'II', 'III', 'IV']
 
       </tbody>
     </table>
-  </>
+  </div>
   ) : (
     <Spinner animation="border" role="status" variant="primary">
       <span className="visually-hidden">Загрузка...</span>
