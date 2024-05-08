@@ -6,7 +6,12 @@ const deformation_response = fs.readFileSync(
   "deformation_response.json",
   "utf8"
 );
+const deformation_trend_response = fs.readFileSync(
+  "deformation_trend_response.json",
+  "utf8"
+);
 const termo_response = fs.readFileSync("termo_response.json", "utf8");
+const termo_trend_response = fs.readFileSync("termo_trend_response.json", "utf8");
 
 const app = express();
 const port = 3000;
@@ -27,6 +32,21 @@ app.get("/api/measurements/", (req, res) => {
         res.send(deformation_response);
     } else if (id === 'thermistor'){
         res.send(termo_response);
+    } else {
+        res.status(403).send('O! Smth goes wrong...')
+    }
+    
+  }, 1600); //это для имитации задержки отклика от бэка
+});
+
+app.get("/api/measurements/trend", (req, res) => {
+  const id = req.query.id;
+
+  setTimeout(() => {
+    if (id === 'deformation') {
+        res.send(deformation_trend_response);
+    } else if (id === 'thermistor'){
+        res.send(termo_trend_response);
     } else {
         res.status(403).send('O! Smth goes wrong...')
     }

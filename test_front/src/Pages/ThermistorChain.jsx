@@ -77,8 +77,7 @@ export function ThermistorChain() {
           <Button variant="success" onClick={() => {
 
             setTermistorFiltered([...thermistor.filter((item)=>{
-              console.log(new Date(item.time))
-              console.log(new Date(start))
+          
               if (start && end) {
                 if (new Date(item.time) > new Date(start) && new Date(item.time) < new Date(end)) return true
                 return false

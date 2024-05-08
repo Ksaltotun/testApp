@@ -6,7 +6,13 @@
     transform: translate(-50%);
 }
 .filter{
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+}
+.chart{
+  height: 600px;
+}
+.modal-dialog{
+  max-width: 1000px;
 }
 .boxForData{
   display: flex;
